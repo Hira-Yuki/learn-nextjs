@@ -1,6 +1,15 @@
-import MovieInfo from "@components/movie-info"
+import MovieInfo, { getMovie } from "@components/movie-info"
 import MovieVideos from "@components/movie-videos"
 import { Suspense } from "react"
+
+export async function generateMetadata({
+  params: { id },
+}) {
+  const { title } = await getMovie(id)
+  return {
+    title,
+  }
+}
 
 export default async function MovieDetail({
   params: { id },
