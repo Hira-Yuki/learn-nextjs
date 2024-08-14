@@ -1,7 +1,7 @@
 "use client"
 
+import styles from '@styles/movie.module.css';
 import Link from 'next/link';
-import styles from '@styles/movie.module.css'
 import { useRouter } from 'next/navigation';
 
 export default function Movie({ movie }) {
