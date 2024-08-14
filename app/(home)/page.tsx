@@ -1,28 +1,31 @@
-
-import { resolve } from "path"
-import { useEffect, useState } from "react"
+import Link from "next/link"
 
 export const metadata = {
   title: 'Home',
 }
 
-const URL = 'https://nomad-movies.nomadcoders.workers.dev/movies'
-
+export const API_URL = 'https://nomad-movies.nomadcoders.workers.dev/movies'
 
 async function getMovies() {
-  await new Promise(resolve => setTimeout(resolve, 10000))
-  return fetch(URL)
+  // await new Promise(resolve => setTimeout(resolve, 1000))
+  return await fetch(API_URL)
     .then(response => response.json())
     .catch(error => error.message)
 }
 
 export default async function HomePage() {
 
-  const movies = JSON.stringify(await getMovies())
+  const movies = await getMovies()
 
   return (
     <div>
-      {movies}
+      {movies.map(movie => (
+        <li key={movie.id}>
+          <Link href={`/movies/${movie.id}`}>
+            {movie.title}
+          </Link>
+        </li>
+      ))}
     </div>
   )
 }
