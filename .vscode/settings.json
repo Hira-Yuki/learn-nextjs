@@ -6,7 +6,7 @@
     "source.fixAll.eslint": "always",
     "source.organizeImports": "always"
   },
-  "cSpell.words": [],
+  "cSpell.words": ["flatrate"],
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.tsserver.log": "verbose",
